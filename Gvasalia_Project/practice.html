@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="build/sigma.min.js"></script>
+    <script src="build/plugins/sigma.renderers.edgeLabels.min.js"></script>
+    <script src="build/plugins/sigma.plugins.dragNodes.min.js"></script>
+    <script src="build/plugins/sigma.layout.noverlap.min.js"></script>
+    <script src="build/plugins/sigma.layout.forceAtlas2.min.js"></script>
+    <script src="build/plugins/sigma.plugins.animate.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Push-relabel Algorithm</title>
+  </head>
+  <body style="height: 100%; width: 100%">
+    <div style="height: 100%; width: 90%">
+      <div style="position: relative">
+        <canvas class="start" id="myCanvas"></canvas>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+          "
+        >
+          <div
+            style="
+              height: 100%;
+              width: 90%;
+              margin-top: 1%;
+              margin-left: 7%;
+              background-color: rgb(7, 121, 198);
+              transition: height 0.8s;
+              -moz-transition: height 0.8s; /* Firefox 4 */
+              -webkit-transition: height 0.8s; /* Safari and Chrome */
+              -o-transition: height 0.8s;
+            "
+            id="sigma_practice"
+          ></div>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          height: 7%;
+          margin-left: 7%;
+          background-color: rgb(8, 95, 153);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        "
+      >
+        <p style="margin-right: auto; background-color: aqua" id="h_arr">
+          h = { }
+        </p>
+        <div style="position: absolute">
+          <button id="prev" style="display: flex">Prev</button>
+          <button id="next" style="display: flex">Next</button>
+        </div>
+        <p style="margin-left: auto; background-color: aqua" id="h_arr1"></p>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-left: 7%;
+        "
+      >
+        <input
+          type="text"
+          name="node_name"
+          id="node_name"
+          placeholder="Node name"
+        />
+        <button id="node_add">Add Node</button>
+        <button id="example_graph" style="margin-left: 5%">
+          Example graph
+        </button>
+        <input
+          name="input_node"
+          list="node_data"
+          style="margin-left: 5%"
+          placeholder="Starting node"
+          id="start_node"
+        />
+        <input
+          name="input_node"
+          list="node_data"
+          placeholder="Ending node"
+          id="end_node"
+        />
+        <datalist id="node_data"> </datalist>
+        <input
+          type="text"
+          name="capacity"
+          id="capacity"
+          placeholder="Capacity"
+        />
+        <button id="edge_add">Add Edge</button>
+        <button id="clear_graph" style="margin-left: 10%">Clear All</button>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-left: 7%;
+          margin-top: 1%;
+          margin-bottom: 1%;
+        "
+      >
+        <input
+          name="source_node"
+          list="node_data"
+          placeholder="Source"
+          id="source_node"
+        />
+        <input
+          name="target_node"
+          list="node_data"
+          placeholder="Target"
+          id="target_node"
+        />
+        <button id="run">Run Algorithm</button>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-left: 7%;
+        "
+      >
+        <a href="index.html" style="color: rgb(7, 121, 198); margin-right: 2%"
+          >Start Screen</a
+        >
+        <a href="intro.html" style="color: rgb(7, 121, 198)">Introduction</a>
+      </div>
+    </div>
+    <script src="functions.js"></script>
+  </body>
+</html>

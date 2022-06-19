@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="build/sigma.min.js"></script>
+    <script src="build/plugins/sigma.renderers.edgeLabels.min.js"></script>
+    <script src="build/plugins/sigma.plugins.dragNodes.min.js"></script>
+    <script src="build/plugins/sigma.layout.noverlap.min.js"></script>
+    <script src="build/plugins/sigma.layout.forceAtlas2.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Push-relabel Algorithm</title>
+  </head>
+  <body style="height: 100%; width: 100%">
+    <div style="height: 100%; width: 90%">
+      <div style="position: relative">
+        <canvas class="start" id="myCanvas1"></canvas>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+          "
+        >
+          <p class="paragraph">
+            This is an app which helps students to do the following:
+          </p>
+          <p class="paragraph">
+            1) Gives an introduction to push-relabel algorithm
+          </p>
+          <p class="paragraph">2) Helps to understand how it works</p>
+          <p class="paragraph">
+            3) Gives examples and shows every step of push-relabel algorithm for
+            different graphs
+          </p>
+          <div
+            style="
+              height: 48%;
+              width: 90%;
+              margin-top: 1%;
+              margin-left: 7%;
+              background-color: rgb(7, 121, 198);
+            "
+            id="sigma"
+          ></div>
+          <p class="paragraph">
+            In Introduction section you can learn all the valuable topics to
+            understand how the algorithm works.
+          </p>
+          <p class="paragraph">
+            In Examples you will see all the steps of the algorithm one by one.
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-left: 7%;
+        "
+      >
+        <a href="intro.html" style="color: rgb(7, 121, 198); margin-right: 2%"
+          >Introduction</a
+        >
+        <a href="practice.html" style="color: rgb(7, 121, 198)">Examples</a>
+      </div>
+    </div>
+    <script src="example_graph.js"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="build/sigma.min.js"></script>
+    <script src="build/plugins/sigma.renderers.edgeLabels.min.js"></script>
+    <script src="build/plugins/sigma.plugins.dragNodes.min.js"></script>
+    <script src="build/plugins/sigma.layout.noverlap.min.js"></script>
+    <script src="build/plugins/sigma.layout.forceAtlas2.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Push-relabel Algorithm</title>
+  </head>
+  <body style="height: 100%; width: 100%">
+    <div style="height: 100%; width: 90%">
+      <div style="position: relative">
+        <canvas class="start" id="myCanvas"></canvas>
+        <div
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 95%;
+          "
+        >
+          <strong style="margin-left: 8%; margin-top: 1%; font-size: 25px">
+            Push relabel algorithm with maximum distance vertex selection rule
+          </strong>
+          <p class="paragraph1">
+            Definition of this problem you can learn following this
+            <a
+              href="https://en.wikipedia.org/wiki/Maximum_flow_problem#Definition"
+              >link</a
+            >. We are going to talk about the push-relabel algorithm with
+            maximum distance vertex selection rule
+          </p>
+          <p class="paragraph1">
+            The idea of the algorithm is pretty simple. On every step of the
+            algorithm we are trying to push the flow. If we can't, then we are
+            trying to lift the nodes which are the highest. If we can't do both
+            operations then the current flow is our answer.
+          </p>
+          <p class="paragraph1">
+            For implementation of the push-relabel algorithm we need some
+            definitions:
+          </p>
+          <p class="paragraph1">\(s\) - source, \(t\) - target</p>
+          <p class="paragraph1">
+            Preflow: \( \forall e \in E\) \ \(\{s, t\} : 0 \leq f(e) \leq c(e),
+            \sum_{(v, u) \in E} f(v, u) \geq \sum_{(u, v) \in E} f(u, v), f(s,
+            u) = c(s, u), f(u, s) = -c(s, u), u \in V\)
+          </p>
+          <p class="paragraph1">
+            Excess: \(e(u) = \sum_{v \in V} f(u, v) - \sum_{v \in V} f(v, u), u
+            \in V\)
+          </p>
+          <p class="paragraph1">
+            Height: \( h(u), u \in V, h(s) = |V| , h(t) = 0,\) for every edge
+            starting in \(u\) and ending in \(v\): \( h(u) \leq h(v) + 1\)
+          </p>
+          <p class="paragraph1">
+            We can push, if \(e(u) > 0, c(u, v) - f(u, v) > 0\) and \(h(u) =
+            h(v) + 1\). Trying to push as much flow as we can. The flow is
+            limited by \(e(u)\) and \(c(u, v) - f(u, v)\)
+          </p>
+          <p class="paragraph1">
+            We can lift, if \(e(u) > 0\). The new height of node \(u\) will be
+            \(h(u) = 1 + min(h(v)), (u, v) \in E\)
+          </p>
+          <p class="paragraph1">
+            This implementation is not only simple, but fast. The complexity is
+            \(O(V^2\sqrt(E))\) which is \(O(V^3)\) in worst cases. Push-relabel
+            algorithm without modifications and other basic algorithms like
+            Edmonds-Karp and Ford-Fulkerson work much longer.
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-left: 7%;
+        "
+      >
+        <a href="index.html" style="color: rgb(7, 121, 198); margin-right: 2%"
+          >Start Screen</a
+        >
+        <a href="practice.html" style="color: rgb(7, 121, 198)">Examples</a>
+      </div>
+    </div>
+  </body>
+</html>
